@@ -1,0 +1,45 @@
+package test;
+
+//定义了Animal接口
+interface Animal {
+    //定义全局变量，其默认类型为修饰为public static final
+    String ANIMAL_BEHAVIOR = "动物的行为";
+
+    // 定义抽象方法breathe(),其默认变量修饰符为public abstract
+    void breathe();
+
+    // 定义抽象方法run（）
+    void run();
+}
+
+// 定义了LandAnimal接口
+interface LandAnimal extends Animal {
+    void liveOnLand();
+}
+
+//Dog类实现Animal接口
+class Dog implements LandAnimal {
+    // 实现breathe方法
+    public void breathe() {
+        System.out.println(ANIMAL_BEHAVIOR + ":" + "狗在呼吸");
+    }
+
+    @Override
+    public void run() {
+        System.out.println(ANIMAL_BEHAVIOR + ":" + "狗在奔跑");
+    }
+
+    @Override
+    public void liveOnLand() {
+        System.out.println("狗是陆地上的动物。。。");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.breathe();
+        dog.run();
+        dog.liveOnLand();
+    }
+}
